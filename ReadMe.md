@@ -2,13 +2,13 @@
 
 > Study Version Control - A CLI Tool for managing versions of study reports
 
-https://img.shields.io/badge/Rust-2021-orange.svg?logo=rust
+![ Rust](https://img.shields.io/badge/Rust-2021-orange.svg?logo=rust)
 
-https://img.shields.io/badge/License-MIT-blue.svg
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
-https://img.shields.io/badge/build-passing-brightgreen.svg
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
-https://img.shields.io/badge/contributions-welcome-brightgreen.svg
+![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)
 
 ## Purpose
 
