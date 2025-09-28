@@ -1,0 +1,6 @@
+[workspace]
+members = [
+  "svc-core",
+  "svc-cli",
+]
+resolver = "3"

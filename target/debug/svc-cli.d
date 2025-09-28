@@ -1,0 +1,1 @@
+/home/tbl/Dokumente/dev/projects/svc/target/debug/svc-cli: /home/tbl/Dokumente/dev/projects/svc/svc-cli/src/args.rs /home/tbl/Dokumente/dev/projects/svc/svc-cli/src/main.rs /home/tbl/Dokumente/dev/projects/svc/svc-core/src/lib.rs
