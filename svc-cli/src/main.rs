@@ -1,5 +1,4 @@
 use args::Command as CliCommand;
-use svc_core::{AddSectionValues, BuildValues, Command as CoreCommand, DiffValues, InitValues};
 
 mod args;
 
@@ -18,10 +17,5 @@ fn main() {
 
     let config = svc_core::Config::new(core_command);
 
-    match config.command {
-        svc_core::Command::Init(values) => println!("Init project: {}", values.name),
-        svc_core::Command::AddSection(values) => println!("Add section: {}", values.name),
-        svc_core::Command::Diff(values) => println!("Diff {} vs {}", values.hash1, values.hash2),
-        svc_core::Command::Build(values) => println!("Build report: {}", values.name),
-    }
+    svc_core::handle_command(config);
 }

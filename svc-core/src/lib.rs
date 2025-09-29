@@ -8,6 +8,21 @@ pub mod fs_utils;
 pub mod utils;
 pub mod vcs;
 
+pub fn handle_command(config: Config) {
+    let result = match config.command {
+        Command::Init(values) => handle_init(&values.name),
+        Command::AddSection(values) => Ok(()),
+        Command::Diff(values) => Ok(()),
+        Command::Build(values) => Ok(()),
+    };
+}
+
+pub fn handle_init(name: &str) -> std::result::Result<(), std::io::Error> {
+    println!("Initializing {name} project");
+    fs_utils::init_project_structure(name)?;
+    Ok(())
+}
+
 // === Re-Exports (public API) ===
 // ClI <-> Core Mapping
 pub use cli::*;
