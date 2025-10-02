@@ -29,8 +29,6 @@ pub struct InitArgs {
 pub struct AddSectionArgs {
     /// Name of the section
     pub name: String,
-    /// Filename of the section
-    pub file_name: String,
 }
 
 #[derive(Debug, Args)]

@@ -4,8 +4,8 @@ pub fn build_init(name: String) -> Command {
     Command::Init(InitValues { name })
 }
 
-pub fn build_add_section(name: String, file_name: String) -> Command {
-    Command::AddSection(AddSectionValues { name, file_name })
+pub fn build_add_section(name: String) -> Command {
+    Command::AddSection(AddSectionValues { name })
 }
 
 pub fn build_diff(hash1: String, hash2: String) -> Command {

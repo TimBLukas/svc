@@ -17,7 +17,6 @@ pub struct InitValues {
 #[derive(Debug)]
 pub struct AddSectionValues {
     pub name: String,
-    pub file_name: String,
 }
 
 #[derive(Debug)]
