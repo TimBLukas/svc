@@ -11,16 +11,26 @@ pub mod vcs;
 pub fn handle_command(config: Config) {
     let result = match config.command {
         Command::Init(values) => handle_init(&values.name),
-        Command::AddSection(values) => Ok(()),
-        Command::Diff(values) => Ok(()),
-        Command::Build(values) => Ok(()),
+        Command::AddSection(values) => handle_add_section(&values.name),
+        Command::Diff(values) => {}
+        Command::Build(values) => {}
     };
 }
 
-pub fn handle_init(name: &str) -> std::result::Result<(), std::io::Error> {
+pub fn handle_init(name: &str) {
     println!("Initializing {name} project");
-    fs_utils::init_project_structure(name)?;
-    Ok(())
+    match fs_utils::init_project_structure(name) {
+        Ok(_) => println!("Successfully initialized empty project"),
+        Err(e) => println!("An Error occurred while initializing the project {e}"),
+    }
+}
+
+pub fn handle_add_section(name: &str) {
+    println!("Adding new section ({name})");
+    match fs_utils::init_section_structure(name) {
+        Ok(_) => println!("Successfully initialized new section"),
+        Err(e) => println!("Unable to create section: {e}"),
+    }
 }
 
 // === Re-Exports (public API) ===

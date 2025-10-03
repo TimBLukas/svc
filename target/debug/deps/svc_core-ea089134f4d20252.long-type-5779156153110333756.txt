@@ -1,0 +1,1 @@
+for<'a> fn(&'a _) -> &'a std::path::Path {std::path::Path::new::<_>}: std::convert::AsRef<std::path::Path>

@@ -10,7 +10,7 @@ fn main() {
 
     let core_command = match args.operation {
         CliCommand::Init(a) => cli::build_init(a.name),
-        CliCommand::AddSection(a) => cli::build_add_section(a.name, a.file_name),
+        CliCommand::AddSection(a) => cli::build_add_section(a.name),
         CliCommand::Diff(a) => cli::build_diff(a.hash1, a.hash2),
         CliCommand::Build(a) => cli::build_build(a.name),
     };
