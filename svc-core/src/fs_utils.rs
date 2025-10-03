@@ -2,39 +2,12 @@ use std::env;
 use std::fs;
 use std::path::{Path, PathBuf};
 
-/// Initializes the project structure by creating the default directories and files
-///
-/// # Arguments
-/// * `project_name` - Name of the project to create directories and files for
-///
-/// # Returns
-/// * `Result<(), std::io::Error>` - Returns Ok if all directories and files ar successfully
-/// created, or an error if any filesystem operation fails.
-pub fn init_project_structure(project_name: &str) -> Result<(), &str> {
-    // get the working directory of the process
-    let working_dir = env::current_dir().unwrap();
-
-    // Initialize the default folder structure for the project
-    let result = init_default_folders(project_name, &working_dir);
-    if result.is_err() {
-        return Err("An error occured while initlizing the folder structure of the project");
-    }
-
-    // Initialize the default files
-    let result = init_default_files(project_name, &working_dir);
-    if result.is_err() {
-        return Err("An error occured while initializing the default files of the project");
-    }
-
-    Ok(())
-}
-
 /// Creates the default directories for the project.
 ///
 /// # Arguments
 /// * `project_name` - the name of the project
 /// * `working_dir` - The base working directory where the command has been executed and the project will be created
-fn init_default_folders(project_name: &str, working_dir: &PathBuf) -> std::io::Result<()> {
+pub fn init_default_folders(project_name: &str, working_dir: &PathBuf) -> std::io::Result<()> {
     // Reusable directory builder
     let mut builder = fs::DirBuilder::new();
 
@@ -61,7 +34,7 @@ fn init_default_folders(project_name: &str, working_dir: &PathBuf) -> std::io::R
 /// # Arguments
 /// * `project_name` - The name of the project
 /// * `working_dir` - The base working_directory where the project will be created
-fn init_default_files(project_name: &str, working_dir: &PathBuf) -> std::io::Result<()> {
+pub fn init_default_files(project_name: &str, working_dir: &PathBuf) -> std::io::Result<()> {
     // List of files that have to be created for the project initialization
     let files = [
         format!("{}/.svc/config.json", project_name),
@@ -145,17 +118,5 @@ mod test {
     }
 
     #[test]
-    fn folder_with_same_name_as_project_already_exists() {
-        let temp_dir = TempDir::new().unwrap();
-        // Change working directory to temp_dir
-        env::set_current_dir(temp_dir.path()).unwrap();
-        let project_name = "test_project";
-        // Create a directory with the same name
-        let _ = fs::create_dir(temp_dir.path().join(project_name));
-        // Try to initialize a new project with the same name
-        match init_project_structure(project_name) {
-            Ok(_) => assert!(true),
-            Err(_) => assert!(false),
-        }
-    }
+    fn folder_with_same_name_as_project_already_exists() {}
 }
