@@ -1,11 +1,11 @@
-use crate::commands::Command;
+use crate::commands::Commands;
 
 pub struct Config {
-    pub command: Command,
+    pub command: Commands,
 }
 
 impl Config {
-    pub fn new(command: Command) -> Self {
+    pub fn new(command: Commands) -> Self {
         Config { command }
     }
 }
